@@ -9,48 +9,22 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    // const h3 = React.createElement(
-    //   "h3",
-    //   {
-    //     id: "title",
-    //     onMouseEnter: () => console.log("mouse enter"),
-    //   },
-    //   "Hello I'm a h3"
-    // );
-    // const btn = React.createElement(
-    //   "button",
-    //   {
-    //     onClick: () => console.log("im clicked"),
-    //     style: { backgroundColor: "tomato" },
-    //   },
-    //   "Click me"
-    // );
+    const App = () => {
+      // naming elements of the Array
+      // const [name1, name2, ...] = Array;
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1); // Modifying the state by the modifier trigger Rerendering.
+      };
 
-    function Title() {
       return (
-        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-          Hello I'm a h3
-        </h3>
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
       );
-    }
-    const Button = () => (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => console.log("im clicked")}
-      >
-        Click me
-      </button>
-    );
+    };
 
-    // const container = React.createElement("div", null, [Title, Button]);
-    const Container = () => (
-      <div>
-        **first letter of my own Component MUST be UpperCase**
-        <Title />
-        <Button />
-      </div>
-    );
-
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
   </script>
 </html>
